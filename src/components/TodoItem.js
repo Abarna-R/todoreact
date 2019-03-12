@@ -5,23 +5,24 @@ class TodoItem extends React.Component {
         this.state = {
             isChecked: false
         };
-        this.click = this.click.bind(this);
+        this.Click = this.Click.bind(this);
     }
-  click(e){
-      e.preventDefault()
-       
-       console.log(123);
+  Click(e){
+      e.preventDefault();
+      console.log(123);
   }
-
     render() {
+    
         return (
-            <>
-                <p>
-                    <input type="checkbox" onChange={this.click}></input>
-                        {this.props.todo.value}
-                    <button onChange="">X</button>
+            <div class="container-fluid bg-secondary">
+              <div class="text-center">
+                <p class="text-white">
+                    <input type="checkbox" onChange={this.Click}></input>
+                       {this.props.todo.value}
+                    <button onClick={this.props.delete.bind(this,this.props.todo)}>X</button>
                 </p>
-            </>
+                </div>
+            </div>
         );
     }
 }

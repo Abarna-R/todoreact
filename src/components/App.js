@@ -9,23 +9,21 @@ class App extends React.Component {
             tasks:[]
         }
         this.handleAddTodo = this.handleAddTodo.bind(this);
-
+        this.delete = this.delete.bind(this);
+        
     }
-   
-    markTodoDone(id) {
-        var todo = tasks[id];
-        tasks.splice(id, 1);
-        todo.done = !todo.done;
-        todo.done ? tasks.push(todo) : tasks.unshift(todo);
-        this.setState({tasks: tasks});  
-      }
-
+    delete(ditem) {
+       
+        var tempArray = this.state.tasks;
+        tempArray.splice(tempArray.indexOf(ditem),1),
+        this.setState({tasks:tempArray})
+    }
 
     handleAddTodo(todoItem) {
         const todo = {
-            id: Math.random() * 3408767,
+            id: Math.random() * 42343244,
             value: todoItem,
-            isComplete: false,
+            done: false
         };
         this.setState((currState) => ({
             tasks: currState.tasks.concat([todo])
@@ -33,12 +31,10 @@ class App extends React.Component {
     }
 
     render() {
-        console.log(this.state);
         return (
-            <div >
+            <div class="container-fluid justify-content-center">
                 <AddTodo handleAddTodo={this.handleAddTodo} />
-                <Wrapper tasks={this.state.tasks}
-                 />
+                <Wrapper delete={this.delete} tasks={this.state.tasks} />
             </div>
         );
     }

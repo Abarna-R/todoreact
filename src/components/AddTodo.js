@@ -26,13 +26,14 @@ class AddTodo extends React.Component {
 
     render() {
         return (
-            <>
-               <h1>To-Do App</h1>
-                <form onSubmit={this.handleFormSubmit}>
+            
+            <div class="jumbotron">
+               <h1 class="text-center">To-Do App</h1>
+                <form class="text-center" onSubmit={this.handleFormSubmit}>
                     <input type="text" placeholder="Add Todo..." value={this.state.todo} onChange={this.handleOnChange}></input>
-                    <button type="submit">Add Todo</button>
+                    <button type="submit">Add +</button>
                 </form>
-            </>
+            </div>
         )
     }
 }
